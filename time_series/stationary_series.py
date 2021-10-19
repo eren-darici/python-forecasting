@@ -16,7 +16,7 @@ def exponential_smoothing(demand_col: pd.Series, alpha: float):
     new_dataframe = pd.DataFrame({'demand': demand_plus,
                                   'forecast': [None for _ in range(len(demand_plus))]})
 
-    new_dataframe.forecast[0] = demand_col[0]
+    new_dataframe.forecast[0] = float(demand_col[0])
 
     for i in range(1, len(demand_plus)):
         new_dataframe.forecast[i] = new_dataframe.demand[i-1] * \
